@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+import glob, os
+import sys
+check = len(sys.argv)
+if check > 1:
+    if sys.argv[1] == "None":
+        args = str(sys.argv[2])
+    else:
+        args = str(sys.argv[1])
+    if os.path.exists("/home/cookie/plebianbot.org/userscripts/" + args):
+        os.chdir("/home/cookie/plebianbot.org/scripts")
+        for file in glob.glob("*"):
+            print("scripts:         plz " + file)
+        print("scripts:         plz make")
+        print("scripts:         plz delete")
+        os.chdir("/home/cookie/plebianbot.org/userscripts/" + args)
+        for file in glob.glob("*"):
+            print("userscripts: plz " + file)
+
+        print("-------------------------------------------------------")
+        print("you can make new commands by using 'plz make arg1 arg2'")
+        print("arg1 = command, arg2 = response by bot")
+        print("example plz make hi hello")
+        print("then plz hi")
+        print("hello")
+    elif not os.path.exists("/home/cookie/plebianbot.org/userscripts/" + args):
+        os.makedirs("/home/cookie/plebianbot.org/userscripts/" + args)
+        os.chdir("/home/cookie/plebianbot.org/scripts")
+        for file in glob.glob("*"):
+            print("scripts:         plz " + file)
+        print("scripts:         plz make")
+        print("scripts:         plz delete")
+        os.chdir("/home/cookie/plebianbot.org/userscripts/" + args)
+        for file in glob.glob("*"):
+            print("userscripts: plz " + file)
+
+        print("-------------------------------------------------------")
+        print("you can make new commands by using 'plz make arg1 arg2'")
+        print("arg1 = command, arg2 = response by bot")
+        print("example plz make hi hello")
+        print("then plz hi")
+        print("hello")
+    else:
+        print(":)")
+else:
+    print("there was a problem")

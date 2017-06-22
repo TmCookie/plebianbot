@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import urllib.request
+import sys
+check = len(sys.argv)
+if check > 1:
+    args = int(sys.argv[1])
+else:
+    args = 1
+for i in range(args):
+        response = urllib.request.urlopen('http://random.cat/meow.php')
+        htmlk = response.read()
+        html = htmlk.decode("ascii")
+        link1 = html[9:]
+        linkfinal = link1[:-2]
+        linkfinal1 = linkfinal.replace('\\', "")
+        print(linkfinal1)
